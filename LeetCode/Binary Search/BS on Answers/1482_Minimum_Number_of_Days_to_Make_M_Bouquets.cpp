@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-private:
+public:
     bool possibility(vector<int>& bloomDay, int day, int m, int k){
         int n = bloomDay.size();
         int bouquets =  0;
@@ -18,24 +18,24 @@ private:
                     if (bouquets >= m) return true;
                 } 
             }
-            else cnt = 0;
+            else{
+                cnt = 0;
+            }
         }
 
         return false;
     }
 
-public:
-    int minDays(vector<int>& bloomDay, int m, int k) {
-        // Edge Case: Required Flowers > Total Availabe Flowers
-        long long requiredFlowers = 1LL * k * m;
-        if(requiredFlowers > bloomDay.size()) return -1;
-        
 
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        long long totalFlowers = 1LL * k * m;
+        if(totalFlowers > bloomDay.size()) return -1;
+        
         int low = *min_element(bloomDay.begin(), bloomDay.end());
         int high = *max_element(bloomDay.begin(), bloomDay.end());
 
         while(low <= high){
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
 
             if(possibility(bloomDay, mid, m, k)){
                 high = mid - 1;

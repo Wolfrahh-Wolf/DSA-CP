@@ -2,13 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    int countOccurrences(const vector<int>& arr, int target) {
-        int first = -1, last = -1;
-        int low = 0, high = arr.size() - 1;
+class Solution{
+private:
+    int firstOccurance(const vector<int>& arr, int target){
+        int first = -1;
 
-        // First Occurence
+        int low = 0;
+        int high = arr.size() - 1;
+
         while(low <= high){
             int mid = low + (high - low) / 2;
 
@@ -16,20 +17,21 @@ public:
                 first = mid;
                 high = mid - 1;
             }
-            else if(arr[mid] < target){
-                low = mid + 1;
-            }
-            else {
-                high = mid - 1;
-            }
+            else if(arr[mid] < target) low = mid + 1;
+            else high = mid - 1;
         }
 
         if(first == -1) return 0;
 
-        low = 0;
-        high = arr.size() - 1;
+        return first;
+    }
 
-        // Second occurence
+    int lastOccurance(const vector<int>& arr, int target){
+        int last = -1;
+
+        int low = 0;
+        int high = arr.size() - 1;
+
         while(low <= high){
             int mid = low + (high - low) / 2;
 
@@ -37,13 +39,17 @@ public:
                 last = mid;
                 low = mid + 1;
             }
-            else if(arr[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
+            else if(arr[mid] < target) low = mid + 1;
+            else high = mid - 1;
         }
+
+        return last;
+    }
+
+public:
+    int countOccurrences(const vector<int>& arr, int target) {
+        int first = firstOccurance(arr, target);
+        int last  = lastOccurance(arr, target);
 
         return last - first + 1;
     }
@@ -65,8 +71,7 @@ public:
 
 // Verdict: Optimal
 
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

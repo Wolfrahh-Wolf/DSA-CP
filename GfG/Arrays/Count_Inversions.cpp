@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     
     // Function to merge two sorted halves arr[low..mid] and arr[mid+1..high]
     void merge(vector<int>& arr, int low, int mid, int high){

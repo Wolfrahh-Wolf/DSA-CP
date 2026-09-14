@@ -9,12 +9,11 @@ public:
         int left  = 0;
         int right = n -  1;
         int waterTrapped = 0;
-        int leftMax;
-        int rightMax;
-
+        int leftMax = INT_MIN;
+        int rightMax = INT_MIN;
 
         while(left < right){
-            if(height[left] < height[right]){
+            if(height[left] <= height[right]){
                 leftMax = max(leftMax, height[left]);
                 waterTrapped += leftMax - height[left];
                 left++;
@@ -46,10 +45,6 @@ public:
 // SC: O(1)
 
 // Verdict: Optimal
-
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
 
 int main()
 {

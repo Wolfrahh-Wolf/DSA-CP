@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int upperBound(vector<int>& arr, int target) {
         int ind = arr.size();
         int low = 0;
@@ -11,14 +11,14 @@ class Solution {
 
         while(low <= high){
             int mid = (low + high) / 2;
+            
             if(arr[mid] > target){
                 ind = mid;
                 high = mid - 1;
             }
-            else{
-                low = mid + 1;
-            }
+            else low = mid + 1;
         }
+
         return ind;
     }
 };

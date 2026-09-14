@@ -37,79 +37,6 @@ public:
 // Optimal
 // Use of STL
 
-
-
-// Optimal using Raw BS - Binary Search
-class Solution {
-public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        int low, mid, high;
-        int first = -1;
-        int last = -1;
-
-        // First Occurance
-        low = 0;
-        high = nums.size() - 1;
-
-        while(low <= high){
-            mid = (low+high) / 2;
-
-            if(nums[mid] == target){
-                first = mid;
-                high = mid - 1;
-            }
-            else if(nums[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
-        }
-
-        // Edge Case: No Occurance of Target in the given Array
-        if(first == -1) return {first, last};
-
-        // Last Occurance
-        low = 0;
-        high = nums.size() - 1;
-
-        while(low <= high){
-            mid = (low+high) / 2;
-
-            if(nums[mid] == target){
-                last = mid;
-                low = mid + 1;
-            }
-            else if(nums[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
-        }
-
-        return {first, last};
-    }
-};
-
-// Technique:
-// BS- Binary Search (Modified)
-
-// Approach:
-// 1. Perform binary search to find the first occurrence index of target:
-//    - Move high to mid-1 when nums[mid] == target to search left side.
-// 2. If first occurrence is not found, return {-1, -1} early.
-// 3. Perform binary search to find the last occurrence index of target:
-//    - Move low to mid+1 when nums[mid] == target to search right side.
-// 4. Return the pair of indices as the first and last occurrences.
-
-// TC: O(log n)
-// SC: O(1)
-
-// Verdict: Optimal
-
-
-
 // Optimal using Raw BS - Binary Search and Modular
 class Solution {
 public:
@@ -127,12 +54,8 @@ public:
                 first = mid;
                 high = mid - 1;
             }
-            else if(nums[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
+            else if(nums[mid] < target) low = mid + 1;
+            else high = mid - 1;
         }
 
         return first;
@@ -152,12 +75,8 @@ public:
                 last = mid;
                 low = mid + 1;
             }
-            else if(nums[mid] < target){
-                low = mid + 1;
-            }
-            else{
-                high = mid - 1;
-            }
+            else if(nums[mid] < target) low = mid + 1;
+            else high = mid - 1;
         }
 
         return last;
@@ -177,7 +96,7 @@ public:
 };
 
 // Technique:
-// BS- Binary Search (Modified)
+// BS - Binary Search (Modified)
 
 // Approach:
 // 1. For first occurrence:
@@ -192,8 +111,7 @@ public:
 
 // Verdict: Optimal
 
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

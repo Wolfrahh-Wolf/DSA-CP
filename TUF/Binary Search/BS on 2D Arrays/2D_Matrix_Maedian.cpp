@@ -8,17 +8,17 @@ private:
 
         return upper_bound(matrix.begin(), matrix.end(), median) - matrix.begin();
     }
-    
+
 public:
     int findMedian(vector<vector<int>>&matrix) {
         int totalRows = matrix.size();
         int totalCols = matrix[0].size();
 
-        int low = INT_MAX;
+        int low  = INT_MAX;
         int high = INT_MIN;
 
         for(int row = 0; row < totalRows; row++){
-            low = min(low, matrix[row][0]);
+            low  = min(low, matrix[row][0]);
             high = max(high, matrix[row][totalCols - 1]);
         }
 
@@ -62,12 +62,7 @@ public:
 
 // Verdict: Optimal
 
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
-
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

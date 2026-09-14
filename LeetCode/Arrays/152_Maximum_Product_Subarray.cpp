@@ -7,14 +7,18 @@ public:
     int maxProduct(vector<int>& nums) {
         double prefixPro = 1;
         double suffixPro = 1;
+
         double ans = INT_MIN;
+
         int n = nums.size();
         
-        for(int i = 0; i<n; i++){
+        for(int i = 0; i < n; i++){
             if(prefixPro == 0) prefixPro = 1;
             if(suffixPro == 0) suffixPro = 1;
+
             prefixPro *= nums[i];
             suffixPro *= nums[n-i-1];
+
             ans = max(ans, max(prefixPro, suffixPro));
         }
 
@@ -35,12 +39,7 @@ public:
 
 // Verdict: Optimal
 
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
-
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

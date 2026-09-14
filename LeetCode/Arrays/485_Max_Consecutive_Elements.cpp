@@ -7,14 +7,13 @@ public:
     int findMaxConsecutiveOnes(vector<int>& nums) {
         int maxCon = 0;
         int cnt = 0;
+
         for(int i = 0; i < nums.size(); i++){
             if(nums[i] == 1){
                 cnt++;
                 maxCon = max(cnt, maxCon);
             }
-            else{
-                cnt = 0;
-            }
+            else cnt = 0;
         }
         return maxCon;
     }
@@ -28,12 +27,7 @@ public:
 
 // Verdict: Optimal
 
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
-
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

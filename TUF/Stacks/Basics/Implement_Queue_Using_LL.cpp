@@ -1,0 +1,73 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node{
+    int val;
+    Node* next;
+
+    Node(int d){
+        val = d;
+        next = NULL;
+    }
+};
+
+class LinkedListQueue{
+private:
+    Node* start;
+    Node* end;
+    int size;
+
+public:
+    LinkedListQueue(){
+        start = end = NULL;
+        size = 0;
+    }
+
+    void push(int x){
+        Node* element = new Node(x);
+
+        if(start == NULL){
+            start = end = element;
+        }
+        else{
+            end->next = element;
+            end = element;
+        }
+
+        size++;
+    }
+
+    int pop(){
+        if(start == NULL){
+            return -1;
+        }
+
+        int value = start->val;
+        Node* temp = start;
+
+        start = start->next;
+        delete temp;
+
+        size--;
+
+        return value;
+    }
+
+    int peek(){
+        if(start == NULL){
+            return -1;
+        }
+
+        return start->val;
+    }
+
+    bool isEmpty(){
+        return size == 0;
+    }
+};
+
+int main(){
+    // Main Function placeholder for testing
+    return 0;
+}

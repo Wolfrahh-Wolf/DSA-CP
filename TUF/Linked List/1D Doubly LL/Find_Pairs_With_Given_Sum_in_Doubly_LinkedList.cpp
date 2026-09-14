@@ -2,6 +2,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class ListNode {
+public:
+    int val;
+    ListNode* next;
+    ListNode* prev; 
+
+    ListNode(int value) : val(value), next(nullptr), prev(nullptr) {}
+
+    ~ListNode() {
+        delete next;
+    }
+};
+
 class Solution {
 public:
     vector<vector<int>> findPairsWithGivenSum(ListNode* head, int target) {
@@ -9,12 +22,12 @@ public:
 
         if(!head || !head->next) return ans;
 
-        ListNode* low = head;
+        ListNode* low  = head;
         ListNode* high = head;
         
         while(high->next) high = high->next;
 
-        while(low != nullptr && high != nullptr && low != high && low->val < high->val) {
+        while(low && high && low != high && low->val < high->val) {
             int sum = low->val + high->val;
             
             if(sum == target) {
@@ -22,12 +35,8 @@ public:
                 low = low->next;
                 high = high->prev;
             }
-            else if(sum < target) {
-                low = low->next;
-            }
-            else {
-                high = high->prev;
-            }
+            else if(sum < target) low = low->next;
+            else high = high->prev;
         }
 
         return ans;
@@ -51,22 +60,7 @@ public:
 
 // Verdict: Optimal
 
-
-class ListNode {
-public:
-    int val;
-    ListNode* next;
-    ListNode* prev; 
-
-    ListNode(int value) : val(value), next(nullptr), prev(nullptr) {}
-
-    ~ListNode() {
-        delete next;
-    }
-};
-
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

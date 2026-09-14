@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int lowerBound(vector<int>& arr, int target) {
         int ind = arr.size();
         int low = 0;
@@ -15,10 +15,9 @@ class Solution {
                 ind = mid;
                 high = mid - 1;
             }
-            else{
-                low = mid + 1;
-            }
+            else low = mid + 1;
         }
+        
         return ind;
     }
 };

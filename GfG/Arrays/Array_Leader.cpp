@@ -31,10 +31,6 @@ class Solution {
 
 // Verdict: Optimal
 
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
-
 int main()
 {
     // Main Function placeholder for testing

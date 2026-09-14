@@ -29,7 +29,7 @@ public:
         int high = accumulate(nums.begin(), nums.end(), 0);
         
         while(low <= high){
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
             
             int studentCnt = noOfStudents(nums, mid, m);
             

@@ -10,17 +10,17 @@ public:
         int index = -1;
 
         while (low <= high){
-            int mid = (low + high) / 2;
+            int mid = low + ((high - low) / 2);
             
             if(nums[low] <= nums[mid]){
-                if (nums[low] < ans) {
+                if(nums[low] < ans){
                     index = low;
                     ans = nums[low];
                 }
                 low = mid + 1;
             }
             else{
-                if (nums[mid] < ans) {
+                if(nums[mid] < ans){
                     index = mid;
                     ans = nums[mid];
                 }

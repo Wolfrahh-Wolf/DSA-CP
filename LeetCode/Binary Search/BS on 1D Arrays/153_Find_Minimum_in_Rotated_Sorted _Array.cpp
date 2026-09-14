@@ -29,7 +29,7 @@ public:
                     index = low;
                     ans = nums[low];
                 }
-                low = mid + 1;
+                low = mid + 1; // Shift the pointer to Unsorted Half (Right Half)
             }
             // If Right part is Sorted
             else{
@@ -37,7 +37,7 @@ public:
                     index = mid;
                     ans = nums[mid];
                 }
-                high = mid - 1;
+                high = mid - 1; // Shift the pointer to Unsorted Half (Left Half)
             }
         }
 

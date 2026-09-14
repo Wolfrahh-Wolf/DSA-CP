@@ -14,9 +14,8 @@ private:
             if (nums[mid] <= x) {
                 ans = nums[mid];
                 low = mid + 1;
-            } else {
-                high = mid - 1;
             }
+            else high = mid - 1;
         }
 
         return ans;
@@ -32,9 +31,8 @@ private:
             if (nums[mid] >= x) {
                 ans = nums[mid];
                 high = mid - 1;
-            } else {
-                low = mid + 1;
             }
+            else low = mid + 1;
         }
 
         return ans;
@@ -65,8 +63,7 @@ public:
 
 // Verdict: Optimal
 
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }

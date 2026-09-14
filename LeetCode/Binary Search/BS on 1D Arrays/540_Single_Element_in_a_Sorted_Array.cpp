@@ -16,7 +16,7 @@ public:
         if(nums[high] != nums[nums.size() - 1]) return nums[nums.size() - 1];
 
         while(low <= high){
-            int mid = (low+high) / 2;
+            int mid = low + ((high - low) / 2);
 
             if(nums[mid-1] != nums[mid] && nums[mid] != nums[mid+1]) return nums[mid];
 
@@ -52,6 +52,7 @@ public:
 // Check edges first - if the first or the last element is unique, return it.
 // For the middle elements, check if the current element is different from neighbors to identify the single element.
 // Use the parity of mid index to decide which half to search next:
+// Intuition => Consecute Odd and Even Pos element should be the same
 // - If mid is even and nums[mid] equals nums[mid+1], unique element lies in the right half.
 // - Else, it lies in the left half.
 // Repeat until single element is found or indices cross.
@@ -60,10 +61,6 @@ public:
 // SC: O(1)
 
 // Verdict: Optimal
-
-// GitHub: https://github.com/yashwanth-a-ssn
-// LeetCode: https://leetcode.com/u/yashwanth-a-ssn/
-// CodeForces: https://codeforces.com/profile/yashwanth-a-ssn
 
 int main()
 {

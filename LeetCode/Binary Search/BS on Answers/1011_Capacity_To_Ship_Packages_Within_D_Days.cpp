@@ -12,7 +12,7 @@ private:
             sum += weights[i];
 
             if(sum > capacity){
-                noOfDays++;
+                noOfDays += 1;
                 if(noOfDays > days) return noOfDays;
                 sum = weights[i];
             }

@@ -28,6 +28,34 @@ class Solution {
 // Time Complexity: O(N^2)
 // Space Complexity: O(1)
 
+
+// ===> Recursive
+class Solution{
+private:
+    void insertionSortHelper(vector<int>& nums, int n){
+        if(n <= 1) return;
+
+        insertionSortHelper(nums, n - 1);
+
+        int last = nums[n - 1];
+        int j = n - 2;
+
+        while(j >= 0 && nums[j] > last){
+            nums[j + 1] = nums[j];
+            j--;
+        }
+
+        nums[j + 1] = last;
+    }
+
+public:
+    vector<int> insertionSort(vector<int>& nums){
+        insertionSortHelper(nums, nums.size());
+
+        return nums;
+    }
+};
+
 int main() {
     // Main Function placeholder for testing
     return 0;

@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+private:
     int countSubarrays(vector<int>& nums, int k, int maxSum){
         int subarrayCnt = 1;
         int total = nums[0];
@@ -21,6 +21,7 @@ public:
         return subarrayCnt;
     }
 
+public:
     int splitArray(vector<int>& nums, int k) {
         int low = *max_element(nums.begin(), nums.end());
         int high = accumulate(nums.begin(), nums.end(), 0);

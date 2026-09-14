@@ -4,8 +4,7 @@ using namespace std;
 
 class Solution {
 private:
-    // Func to find the Row of Max Elem in the given Col
-    int maxElement(vector<vector<int>>& matrix, int col, int totalRows){
+    int maxElemIdx(vector<vector<int>>& matrix, int col, int totalRows){
         int maxValue = INT_MIN;
         int maxRowInd;
 
@@ -24,26 +23,24 @@ public:
     vector<int> findPeakGrid(vector<vector<int>>& mat) {
         int totalRows = mat.size();
         int totalCols = mat[0].size();
-
-        // Binary Search on Coloumn
         int low = 0;
         int high = totalCols - 1;
 
         while(low <= high){
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
 
-            int row = maxElement(mat, mid, totalRows);
+            int row = maxElemIdx(mat, mid, totalRows);
 
-            int leftNeighbour = (mid - 1) >= 0 ? mat[row][mid - 1] : -1;
+            int leftNeighbour  = (mid - 1) >= 0        ? mat[row][mid - 1] : -1;
             int rightNeighbour = (mid + 1) < totalCols ? mat[row][mid + 1] : -1;
 
             if(mat[row][mid] > leftNeighbour && mat[row][mid] > rightNeighbour) return{row, mid};
-            // Doesn't check Top and Bottom since deliberately picking Max Elem in that Col
             else if(leftNeighbour > mat[row][mid]) high = mid - 1;
             else low = mid + 1;
         }
 
         return {-1, -1};
+
     }
 };
 
@@ -67,8 +64,7 @@ public:
 
 // Verdict: Optimal
 
-int main()
-{
+int main(){
     // Main Function placeholder for testing
     return 0;
 }
